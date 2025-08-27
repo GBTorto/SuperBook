@@ -10,4 +10,4 @@ def lista_posts(request):
 class PostList(ListView):
     model = Post
     template_name = "posts/lista_posts.html"
-    context_object_name = "post"
+    context_object_name = "posts"
