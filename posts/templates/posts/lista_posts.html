@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feed</title>
-</head>
-<body>
-    <h1>Posts</h1>
-    <ul>
-        {% for post in posts %}
-            <li>{{post.autor}}</li>
-            <li>{{post.mensagem}}</li>
-            <li>{{post.criado_em}}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Lista de Heróis{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Feed</h2>
+
+<div class="row">
+{% for post in posts %}
+    <div class="col-md-4">
+        <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.autor }}</h5>
+            <p class="card-text">{{ post.mensagem }}</p>
+            <small class="text-muted">{{ post.criado_em }}</small>
+        </div>
+        </div>
+    </div>
+{% empty %}
+    <p>Nenhum post encontrado.</p>
+{% endfor %}
+</div>
+{% endblock %}
