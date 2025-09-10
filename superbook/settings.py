@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Apps criados
     'heroes',
     'posts',
+    'villains',
 ]
 
 MIDDLEWARE = [
