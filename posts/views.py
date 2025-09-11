@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Post
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .forms import PostForm
 from django.urls import reverse_lazy
 
@@ -15,5 +15,17 @@ class PostCreateView(CreateView):
     form_class = PostForm
     template_name = 'posts/form_post.html'
     success_url = reverse_lazy('listar_posts')
+
+class PostUpdateView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'posts/form_post.html'
+    success_url = reverse_lazy('lista_posts')
+
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'posts/confirmar_exclusao.html'
+    success_url = reverse_lazy('lista_posts')
+
 
 # Gabriel Morais

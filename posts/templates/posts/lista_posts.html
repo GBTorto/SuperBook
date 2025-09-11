@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-  <div class="container mt-4">
+<div class="container mt-4">
     <h2>Lista de Posts</h2>
     <ul class="list-group">
-      {% for post in posts %}
+    {% for post in posts %}
         <li class="list-group-item">
-          <strong>{{ post.autor.codinome }}</strong><br>
-          {{ post.mensagem|linebreaksbr }}
-          <small class="text-muted">{{ post.criado_em }}</small>
+        <strong>{{ post.autor.codinome }}</strong><br>
+        {{ post.mensagem|linebreaksbr }}
+        <div class="mt-2">
+            <a href="{% url 'editar_post' post.pk %}" class="btn btn-sm btn-outline-primary">Editar</a>
+            <a href="{% url 'excluir_post' post.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+        </div>
         </li>
-      {% empty %}
-        <li class="list-group-item">Nenhum post encontrado.</li>
-      {% endfor %}
+    {% endfor %}
     </ul>
-  </div>
+
+
+    </ul>
+</div>
 {% endblock %}
