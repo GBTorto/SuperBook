@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .forms import PostForm
@@ -26,6 +26,8 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = 'posts/confirmar_exclusao.html'
     success_url = reverse_lazy('lista_posts')
+
+# class PostDetailView():
 
 
 # Gabriel Morais
