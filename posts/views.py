@@ -5,10 +5,6 @@ from .forms import PostForm
 from django.urls import reverse_lazy
 
 # Create your views here.
-def lista_posts(request):
-    posts = Post.objects.all()
-    return render(request, 'posts/lista_posts.html', {"posts": posts})
-
 class PostList(ListView):
     model = Post
     template_name = "posts/lista_posts.html"
