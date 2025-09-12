@@ -4,4 +4,4 @@ from .models import Comentario
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ['conteudo']
+        fields = ['id_autor', 'conteudo']

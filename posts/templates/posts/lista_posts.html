@@ -4,14 +4,14 @@
     <h2>Lista de Posts</h2>
     <ul class="list-group">
     {% for post in posts %}
-        <li class="list-group-item">
+        <a href="{% url 'info_post' post.id %}"><li class="list-group-item">
         <strong>{{ post.autor.codinome }}</strong><br>
         {{ post.mensagem|linebreaksbr }}
         <div class="mt-2">
             <a href="{% url 'editar_post' post.pk %}" class="btn btn-sm btn-outline-primary">Editar</a>
             <a href="{% url 'excluir_post' post.pk %}" class="btn btn-sm btn-outline-danger">Excluir</a>
         </div>
-        </li>
+        </li></a>
     {% endfor %}
     </ul>
 
