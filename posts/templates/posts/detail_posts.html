@@ -10,7 +10,12 @@
     <h2>Comentários</h2>
     <ul>
         {% for comentario in detail_post.comentario_set.all %}
-            <li>{{ comentario.conteudo }}</li>
+        <li>
+            <div>
+                <h5>{{ comentario.id_autor }}</h5>
+                <p>{{ comentario.conteudo }}</p>
+            </div>
+        </li>
         {% empty %}
             <li>Sem comentários ainda.</li>
         {% endfor %}

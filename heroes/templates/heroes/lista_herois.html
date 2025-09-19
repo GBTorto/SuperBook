@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% block title %}Lista de Heróis{% endblock %}
@@ -10,11 +9,16 @@
 {% for hero in herois %}
     <div class="col-md-4">
         <div class="card mb-3">
-        <div class="card-body">
-            <h5 class="card-title">{{ hero.codinome }}</h5>
-            <p class="card-text">{{ hero.poder_principal }}</p>
-            <small class="text-muted">{{ hero.cidade }}</small>
-        </div>
+            <div class="card-body d-flex align-items-center">
+                {% if hero.imagem %}
+                <img src="{{ hero.imagem.url}}" alt="{{ hero.codinome }}" class="hero-img">
+                {% endif %}
+                <div>
+                    <h5 class="card-title">{{ hero.codinome }}</h5>
+                    <p class="card-text">{{ hero.poder_principal }}</p>
+                    <small class="text-muted">{{ hero.cidade }}</small>
+                </div>
+            </div>
         </div>
     </div>
 {% empty %}
@@ -22,4 +26,3 @@
 {% endfor %}
 </div>
 {% endblock %}
-

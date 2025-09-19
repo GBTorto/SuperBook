@@ -3,6 +3,11 @@
 
 {% block content %}
   <h1>Vilões</h1>
-  <p>Em breve: CRUD de vilões.</p>
+  {% for villain in villains %}
+    <p>{{ villain.codinome }}</p>
+    <a href="{% url 'editar_viloes' villain.pk %}">Editar</a>
+  {% endfor %}
+
+  <a href="{% url 'form_viloes' %}">Cadastrar</a>
 {% endblock %}
 
