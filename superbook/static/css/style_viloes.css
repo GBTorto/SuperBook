@@ -1,19 +1,20 @@
 /* superbook/superbook/static/css/style.css */
 .navbar-custom {
-  background-color: #cce6ff;
+  background-color: #1a1a1a;           /* preto profundo */
   padding: 18px 24px;
   min-height: 96px;
   border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
-.brand { gap: 12px; }                 /* espaço entre logo e texto */
+.brand { gap: 12px; }
 .brand-logo { height: 72px; width: auto; display: block; }
 
 .brand-title {
-  font-size: 1.35rem;                 /* ajuste fino do tamanho */
+  font-size: 1.35rem;
   font-weight: 700;
-  line-height: 1;                     /* alinha verticalmente ao logo */
-  color: #0b2e59;                     /* azul mais escuro para contraste */
+  line-height: 1;
+  color: #e63946;                      /* vermelho vibrante */
   letter-spacing: .2px;
 }
 
@@ -25,14 +26,14 @@
 
 /* ====== Geral ====== */
 body {
-    background-color: #f9f9f9;
+    background-color: #121212;          /* preto suave */
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+    color: #f5f5f5;                     /* texto claro */
 }
 
 /* ====== Títulos ====== */
 h1, h2, h5 {
-    color: #222;
+    color: #ff4d4d;                     /* vermelho forte */
     font-weight: 600;
 }
 
@@ -44,11 +45,15 @@ h1.text-center {
 .btn {
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
+    background: #e63946;                /* vermelho destaque */
+    color: #fff;
+    border: none;
 }
 
 .btn:hover {
     transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    background: #ff4d4d;
+    box-shadow: 0 3px 10px rgba(230,57,70,0.5);
 }
 
 /* ====== Lista de Posts ====== */
@@ -58,14 +63,14 @@ h1.text-center {
     border-radius: 50%;
     object-fit: cover;
     margin-right: 15px;
-    border: 2px solid #ddd;
+    border: 2px solid #e63946;
 }
 
 .d-flex.align-items-center {
-    background: #fff;
+    background: #1e1e1e;                /* cinza/preto suave */
     border-radius: 10px;
     padding: 15px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
 .d-flex.align-items-center + .d-flex.align-items-center {
@@ -73,19 +78,31 @@ h1.text-center {
 }
 
 /* Links dos posts */
+a.text-light {
+    color: #fff;
+    text-decoration: none;
+}
+
+
 a.text-dark {
     font-size: 15px;
     line-height: 1.4;
     display: inline-block;
     margin-bottom: 5px;
+    color: #f5f5f5;                     /* texto claro */
+    text-decoration: none;
+}
+
+a.text-dark:hover {
+    color: #e63946;                     /* vermelho ao passar o mouse */
 }
 
 /* ====== Formulários ====== */
 form {
-    background: #fff;
+    background: #1a1a1a;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 form button {
@@ -93,12 +110,18 @@ form button {
     padding: 8px 16px;
 }
 
-/* Inputs */
 form input, form textarea, form select {
     border-radius: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #444;
     padding: 8px;
     width: 100%;
+    background: #121212;
+    color: #f5f5f5;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: #e63946;
+    outline: none;
 }
 
 /* ====== Comentários ====== */
@@ -108,38 +131,37 @@ ul {
 }
 
 ul li {
-    background: #f1f1f1;
+    background: #1e1e1e;
     padding: 10px;
     border-radius: 6px;
     margin-bottom: 8px;
+    color: #ddd;
+    border-left: 4px solid #e63946;
 }
 
 /* ====== Confirmar Exclusão ====== */
 .container.mt-4 {
-    background: #fff;
+    background: #1a1a1a;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.6);
 }
 
 .container.mt-4 p {
     font-size: 16px;
+    color: #f5f5f5;
 }
 
 /* ====== Heróis (lista) ====== */
 .hero-img {
-    width: 80px;         /* tamanho fixo */
+    width: 80px;
     height: 80px;
-    object-fit: cover;   /* corta sem distorcer */
-    border-radius: 50%;  /* deixa redondo */
-    margin-right: 15px;  /* espaço entre imagem e texto */
-    border: 2px solid #ddd;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #e63946;
 }
 
 .card-body.d-flex {
-    gap: 10px; /* espaço consistente entre imagem e texto */
-}
-
-a.text-menu{
-    text-decoration: none;
+    gap: 10px;
 }

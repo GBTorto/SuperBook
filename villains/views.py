@@ -30,3 +30,5 @@ class ViloesUpdateView(UpdateView):
 
 class ViloesDeleteView(DeleteView):
     model = Villain
+    template_name = 'villains/confirmar_exclusao.html'
+    success_url = reverse_lazy('lista_viloes')
