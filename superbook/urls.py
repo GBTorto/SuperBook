@@ -24,6 +24,8 @@ urlpatterns = [
     path('heroes/', include('heroes.urls')),
     path('posts/', include('posts.urls')),
     path('villains/', include('villains.urls')),
+
+    path('accounts/', include('allauth.urls')), 
 ]
 
 if settings.DEBUG:

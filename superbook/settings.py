@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-r6fml1(9@5bip3$*wudta+lsh!0se*!*7a%&7g@f3ivoprw^ir
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost', '127.0.0.1'
+]
 
 
 # Application definition
@@ -39,12 +41,39 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Sites (obrigatório para allauth) # ***** NÃO ESQUECER!!!!! ****
+    'django.contrib.sites',    # ***** ATENÇÃO ! NÃO ESQUECER DO SITES !!!!! ****
+
+    # allauth
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
     # Apps criados
     'heroes',
     'posts',
     'villains',
     'comments',
 ]
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # backend padrão do Django
+    'allauth.account.auth_backends.AuthenticationBackend',  # backend do allauth
+]
+
+LOGIN_REDIRECT_URL = 'lista_posts'
+LOGOUT_REDIRECT_URL = 'lista_posts'
+
+# dev-only
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'superbook.urls'
